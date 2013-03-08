@@ -1,0 +1,17 @@
+<% title "New Tweets" %>
+
+<%= form_for @tweets do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :tag %><br />
+    <%= f.text_field :tag %>
+  </p>
+  <p>
+    <%= f.label :text %><br />
+    <%= f.text_field :text %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>
+
+
+<p><%= link_to "Back to List", tweets_path %></p>
