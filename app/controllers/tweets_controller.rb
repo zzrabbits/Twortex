@@ -1,6 +1,7 @@
 class TweetsController < ApplicationController
   def index
     #@keywords=["justintrudeau","martincauchon","nicholasherold3d","davidbertschi","marcgarneau","joycemurray","deborahcoyne","georgetakach","karenmccrimmon"]
+    @array=[]
     @keywords=Cloud.get_keywords
     if(params.has_key?(:keyword) and !params.has_key?(:subkeyword))
       @cloud=Cloud.new

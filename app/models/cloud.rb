@@ -13,11 +13,11 @@ class Cloud
 
 	def self.get_keywords
 		#@keywords=Pol.select("name")
-		@keywords = Tire.search('tweets', :query => {"match_all" => {}}).results
+		@keywords = Tire.search('tweets', :query => {"match_all" => {}},:size =>1000000).results
 		@hash_keywords=Hash.new
 		for item in @keywords
 			t=item.tag
-			if !@hash_keywords.has_key?(t)
+			if t!=[]&&!@hash_keywords.has_key?(t)
 				@hash_keywords[t]=1
 			end
 		end
@@ -54,8 +54,8 @@ class Cloud
 					@subkeyword_list<<[f['term'],f['count']]	
 				end
     	end
-    	@subkeyword_list=@subkeyword_list.shuffle
-    	return @subkeyword_list
+    	#@subkeyword_list.sort{|word,count| count}
+    	return normalize(@subkeyword_list)
 
 	end
 
@@ -85,8 +85,16 @@ class Cloud
 				end
      		#puts "#{f['term'].ljust(10)} #{f['count']}"
     	end
-    	@subkeyword_list=@subkeyword_list.shuffle
-    	return @subkeyword_list
+    	#@subkeyword_list=@subkeyword_list.shuffle
+    	return normalize(@subkeyword_list)
 
 	end
+
+  def normalize(list)
+    unit=list[-1][1]
+    for item in list
+      item[1]/=unit
+    end
+    return list
+  end
 end

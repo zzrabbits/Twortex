@@ -38,14 +38,6 @@ class Getstream
 		TweetStream::Client.new.track(@name_withspace) do |status, client|
   			@statuses << status
   			puts "#{status.text}"
-  			puts "#{status.created_at}"
-  			puts "#{status.id}"
-  			puts "#{status.source}"
-  			puts "#{status.user.id}"
-  			puts "#{status.user.name}"
-  			puts "#{status.user.screen_name}"
-  			puts "#{status.user.location}"
- 			index=nil
   			content="#{status.text}"
   			for i in 0..@name_withspace.length-1
 	  			if content.downcase.include? @name_withspace[i]
@@ -58,6 +50,7 @@ class Getstream
 	  							   :user_name=>status.user.name,
 	  							   :screen_name=>status.user.screen_name,
 	  							   :location=>status.user.location
+	  				puts @name_withspace[i]			   
 	  			end
 	  		end
   			#Crack::JSON.parse()
