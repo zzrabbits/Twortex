@@ -85,7 +85,7 @@ class Cloud
 				end
      		#puts "#{f['term'].ljust(10)} #{f['count']}"
     	end
-    	#@subkeyword_list=@subkeyword_list.shuffle
+    	@subkeyword_list=@subkeyword_list.shuffle
     	return normalize(@subkeyword_list)
 
 	end
