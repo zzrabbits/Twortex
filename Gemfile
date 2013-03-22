@@ -10,7 +10,8 @@ gem 'tire'
 gem "tweetstream"
 gem "nifty-generators", :group => :development
 
-gem 'pg', :group => :production 
+
+gem 'heroku'
 
 
 # Gems used only for assets and not required
