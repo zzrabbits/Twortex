@@ -50,6 +50,11 @@ GEM
     commonjs (0.2.6)
     cookiejar (0.3.0)
     daemons (1.1.9)
+    delayed_job (3.0.5)
+      activesupport (~> 3.0)
+    delayed_job_active_record (0.4.3)
+      activerecord (>= 2.1.0, < 4)
+      delayed_job (~> 3.0)
     em-http-request (1.0.3)
       addressable (>= 2.2.3)
       cookiejar
@@ -146,6 +151,7 @@ GEM
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    sqlite3 (1.3.7)
     therubyracer (0.11.4)
       libv8 (~> 3.11.8.12)
       ref
@@ -181,6 +187,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
+  delayed_job_active_record
   heroku
   jquery-rails
   less-rails
@@ -188,6 +195,7 @@ DEPENDENCIES
   nifty-generators
   rails (= 3.2.8)
   sass-rails (~> 3.2.3)
+  sqlite3
   therubyracer
   tire
   tweetstream

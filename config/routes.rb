@@ -1,5 +1,18 @@
 V3::Application.routes.draw do
-  resources :tweets
+  resources :tweets do
+  end
+  resources :tweet do
+  end
+  resource :tweet do
+  end
+
+
+
+    #resources :tweets do
+    #collection do
+     # get 'say_when'
+    #end
+  #end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -26,8 +26,19 @@ class Getstream
 	def follower
 		Twitter.followers("gem")
 	end
-	def hello
-		puts "hello"
+	def collect_historical(tag)
+		Twitter.search(tag, :count => 10, :result_type => "recent").results.map do |status|
+
+	  		Tweetdb.create :created_at=>status.created_at,
+	  					   :text=>status.text,
+	  					   :id=>status.id,
+	  					   :tag=>tag,
+	  					   :source=>status.source,
+	  					   :user_id=>status.user.id,
+	  					   :user_name=>status.user.name,
+	  					   :screen_name=>status.user.screen_name,
+	  					   :location=>status.user.location		   			   
+		end
 	end
 
 

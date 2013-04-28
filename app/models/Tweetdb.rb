@@ -1,4 +1,4 @@
-class Tweetdb
+  class Tweetdb
   include Tire::Model::Persistence
   include Tire::Model::Search
   include Tire::Model::Callbacks

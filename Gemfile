@@ -26,12 +26,17 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'sqlite3'
+
+gem 'delayed_job_active_record'
+
 gem 'jquery-rails'
 
 gem "therubyracer"
 gem "less-rails" 
 
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

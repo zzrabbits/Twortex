@@ -12,8 +12,15 @@ a:active  {color:white;}
 
 .padding
 {
-padding-left:100px;
+margin-left:100px;
 }
+
+#left { float: left;} 
+#right { float: right;
+margin-top: 200px;
+margin-right:200px} 
+
+#time_div{color: :black;}
 
 </STYLE>
 </head>
@@ -35,6 +42,8 @@ padding-left:100px;
     </script>
 
 <h1>Keywords</h1>
+
+
 <%@num_row_keywords = (@keywords.size / 8.to_f).ceil%>
   <%for i in 0..@num_row_keywords%>
       <%for j in 0..7%>
@@ -42,22 +51,29 @@ padding-left:100px;
           <span class="label label-success" id="<%=@keywords[8*i+j]%>"><div id="keywords"> <%= link_to "#{@keywords[8*i+j]}",:controller => :tweets, :action => :index,:keyword=>@keywords[8*i+j]%></div></span>
       <%end%>
   <%end%>
+<div id="right">
+<p>Add new words you want to track</p>
+<form class="navbar-search pull-right">
+  <input type="text" class="search-query" placeholder="Search">
+</form>
 
-
-<h2>Sub Keywords</h2>
+</div>
 
     <div class="padding" id="myCanvasContainer">
       <canvas width="550" height="550" id="myCanvas" style="">
       </canvas>
     </div>
-    <div id="tags" style="display: none;">
-      <ul>
-       <%for j in 0..@array.size-1%>
-        <font size="<%=@array[j][1]*5%>"><%= link_to "#{@array[j][0]}",:controller => :tweets, :action => :index,:subkeyword=>@array[j][0],:keyword=>@selected_keyword%>
-      <%end%>
+    <div id="left">
+      <div id="tags" style="display: none;">
+        <ul>
+         <%for j in 0..@array.size-1%>
+          <font size="<%=@array[j][1]*5%>"><%= link_to "#{@array[j][0]}",:controller => :tweets, :action => :index,:subkeyword=>@array[j][0],:keyword=>@selected_keyword%>
+        <%end%>
 
-      </ul>
-    </div>
+        </ul>
+      </div>
+     </div> 
+
 
 </html>
    

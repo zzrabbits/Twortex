@@ -85,10 +85,26 @@ class Cloud
 				end
      		#puts "#{f['term'].ljust(10)} #{f['count']}"
     	end
-    	@subkeyword_list=@subkeyword_list.shuffle
-    	return normalize(@subkeyword_list)
+        @subkeyword_list.any?
+        @subkeyword_list=@subkeyword_list.shuffle
+        return normalize(@subkeyword_list)
 
+     # else
+      #    histroical_tweets=Getstream.new
+       #   histroical_tweets.collect_historical(tag)
+        #  return query_keyword(tag)
+      #end
 	end
+
+  def test
+    Delayed::Job.enqueue(Myjob.new(1))
+    c=0
+    Delayed::Job.all do |job|
+        puts job.name
+        c=c+1
+    end
+    puts c
+  end
 
   def normalize(list)
     unit=list[-1][1]
